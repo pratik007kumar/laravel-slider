@@ -1,0 +1,14 @@
+{
+    "name": "pratik007kumar/slider",
+    "description": "laravel slider with full feacher by using slick slider js plugin",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pratik Kumar",
+            "email": "pratik007kumar@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
