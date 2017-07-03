@@ -3,10 +3,10 @@ namespace Pratik\ToDoEventCalender\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Calender extends Model
+class Slider extends Model
 {
 
-	protected $table = 'todo_calender';
+	protected $table = 'slider';
      /**
      * The attributes that are mass assignable.
      *
