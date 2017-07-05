@@ -2,21 +2,28 @@
 <html>
 <head>
 	<meta charset='utf-8' />
-	<link rel="stylesheet" href="{{ asset('vendor/pratik/todocalender/plugins/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/bootstrap/css/bootstrap.min.css') }}">
 
 </head>
 <body>
-	<div id='wrap'>
+	 
 
 		
 		<div class="container">
+		<div class="well" style="margin:50px 0px;">
+		<div class="row">
 			
 			
-			<div class="col-md-12">
-			All Sliders
+			<div class="col-md-6">
+			<h3>All Sliders</h3>
+
 			</div>
+			<div class="col-md-6">
+			<a href="{{ url('slider/create') }}" class="btn btn-info">Create New Slider</a>
+			</div>
+			
 			<div class="col-md-12">
-				<table class="table-bordered">
+				<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -26,26 +33,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+					@foreach ($sliders as $slider)
+						<tr>
+							<td>{{$slider->name}}</td>
+							<td>number of slides</td>
+							<td><a href="{{url('slider/'.$slider->id)}}" class="btn btn-info"> View All</td>
+						</tr>	
+					@endforeach
 				</tbody>
 				</table>
 			</div>
 			
 		</div>
-		
-		<div id="calendarModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="calender_frm" action="#" method="post">
-						
-
-					</form>
-				</div>
-			</div>
+		</div>
 		</div>
 		
-		
-	</div>
+	 
 	
 
 

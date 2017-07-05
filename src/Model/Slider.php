@@ -1,5 +1,5 @@
 <?php
-namespace Pratik\ToDoEventCalender\Model;
+namespace Pratik\Slider\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

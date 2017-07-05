@@ -7,37 +7,20 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 // use Pratik\ToDoEventCalender\Requests\CalenderRequest;
-// use Pratik\ToDoEventCalender\Model\Calender;
+use Pratik\Slider\Model\Slider;
 class SliderController extends Controller
 {
  
-    // public function index()
-    // {
-    //      return view('todocalender::calender')->with('cal','dfasdfasfsafsadf');
-    // }
+     
   public function index()
     {
-    	 // return view('calender.calender');
-    	 return view('slider::index');
+        $sliders=Slider::all();
+        return view('slider::index')->with('sliders',$sliders);
     }
-//     public function create(Request $request)
-//     {
-// 		$id=$request->get('id');
-//     	$dt=$request->get('cal_date');
-//     	$dat=$request->get('dat');
-//     	if($id==''){
-//     	$dt_ar=explode(" ", $dt);
-//     	$dt=  date('Y-m-d H:i:s',strtotime($dat.' '.$dt_ar['4']));
-
-//     	 $returnHTML= view('todocalender::calender_frm')->with('dt',$dt)->render();
-//     	}else{
-//     		$event=Calender::find($id);
-//     	 $returnHTML= view('todocalender::calender_frm')->with('event',$event)->render();
-
-//     	}
-//     	 // exit;
-//     	 return response()->json(array('status' => true, 'frm'=>$returnHTML));
-//     }
+    public function create(Request $request)
+    {
+        return view('slider::slider_form');
+    }
 
 // public function store(CalenderRequest $request)
 // {
