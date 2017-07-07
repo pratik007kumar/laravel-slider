@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
-// use Pratik\ToDoEventCalender\Requests\CalenderRequest;
+use Pratik\Slider\Requests\SliderRequest;
 use Pratik\Slider\Model\Slider;
 class SliderController extends Controller
 {
@@ -17,13 +17,15 @@ class SliderController extends Controller
         $sliders=Slider::all();
         return view('slider::index')->with('sliders',$sliders);
     }
-    public function create(Request $request)
+  public function create(Request $request)
     {
         return view('slider::slider_form');
     }
 
-// public function store(CalenderRequest $request)
-// {
+public function store(SliderRequest $request)
+{
+print_r($request::all());
+}
 // 	// print_r(Input::all());
 // 	$msg='';
 // 	$msg_status=false;
