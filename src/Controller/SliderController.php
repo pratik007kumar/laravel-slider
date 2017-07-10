@@ -8,130 +8,151 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Pratik\Slider\Requests\SliderRequest;
 use Pratik\Slider\Model\Slider;
+use Pratik\Slider\Model\Slides;
+use Session;
+
 class SliderController extends Controller
 {
- 
-     
+
+public  static $autoplaySpeed=[1000=>'1 sec',
+                               1500=>'1.5 sec',
+                               2000=>'2 sec',
+                               2500=>'2.5 sec',
+                               3000=>'3 sec',
+                               3500=>'3.5 sec',
+                               4000=>'4 sec',
+                               4500=>'4.5 sec',
+                               5000=>'5 sec',
+                               6000=>'6 sec',
+                               7000=>'7 sec',
+                               8000=>'8 sec',
+                               9000=>'9 sec',
+                               10000=>'10 sec'];
+public  static $slides=[1=>'1',
+                        2=>'2',
+                        3=>'3',
+                        4=>'4',
+                        5=>'5',
+                        6=>'6',
+                        7=>'7',
+                        8=>'8',
+                        9=>'9',
+                        10=>'10',
+                              ];
+
   public function index()
-    {
-        $sliders=Slider::all();
-        return view('slider::index')->with('sliders',$sliders);
-    }
-  public function create(Request $request)
-    {
-        return view('slider::slider_form');
-    }
+  {
+    $sliders=Slider::all();
+    return view('slider::index')->with('sliders',$sliders);
+}
+public function create(Request $request)
+{ 
+    return view('slider::slider_form')->with('autoplaySpeed',self::$autoplaySpeed)->with('slides',self::$slides);
+}
 
 public function store(SliderRequest $request)
 {
-print_r($request::all());
+    // echo '<pre>';
+    // print_r($request->all());
+    // exit;
+    $id=$request->id;
+    $title=$request->title;
+    $slider_type=$request->slider_type;
+    $settings=["slidesToShow" => $request->slidesToShow,
+     "slidesToScroll" =>$request->slidesToScroll,
+     "autoplay"=>$request->autoplay,
+     "autoplaySpeed"=>$request->autoplaySpeed,
+     "dots"=>$request->dots,
+     "arrows"=>$request->arrows,
+     "centerMode"=> $request->centerMode,
+     "infinite"=> 'true'
+     ];
+
+    $slide=$request->slide;
+
+    if($id==''){
+       $obj =new Slider();
+   }else{
+       $obj =Slider::find($id);
+   }
+   $obj->title=$title;
+   $obj->slider_type=$slider_type;
+   $obj->settings=serialize($settings);
+
+   if($obj->save()){
+    //Delete all slides and add new
+    $slides=Slides::where('slider_id','=',$obj->id)->delete();
+
+    foreach ($slide as $key => $value) {
+        $slidObj=new Slides();
+        $slidObj->slider_id=$obj->id;
+        $slidObj->title='';
+        $slidObj->image=$value;
+        $slidObj->status=1;
+        $slidObj->save();
+    }
+    if($id==''){
+      $msg="Save Successfully !";
+  }else{
+      $msg="Update Successfully !";
+  }
+  Session::flash('alert-class', 'alert-success'); 
+
+}else{
+  $msg="Something went wrong ! Please retry.";
+  Session::flash('alert-class', 'alert-danger'); 
 }
-// 	// print_r(Input::all());
-// 	$msg='';
-// 	$msg_status=false;
-// 	$id=$request->id;
-// 	$title=$request->title;
-// 	$description=$request->description;
-// 	$daterange=$request->daterange;
-// 	$daterange=explode('-', $daterange);
-// 	// echo '<pre>';
-// 	// print_r($daterange);
+Session::flash ('message',$msg);
 
-// 	$var = $daterange[0];
-// 	$date = str_replace('/', '-', $var);
-//  	$daterange[0]=date('Y-m-d H:i:s ', strtotime($date));
-	
-// 	$start_dt=$daterange[0];
-
-// 	$var = $daterange[1];
-// 	$date = str_replace('/', '-', $var);
-//  	$daterange[1]=date('Y-m-d H:i:s ', strtotime($date));
-// 	$end_dt=$daterange[1];
-// 	 // print_r(\Auth::user()->id); exit;
-// 	if($id==''){
-// 		$obj =new Calender();
-// 	}else{
-// 		$obj =Calender::find($id);
-// 	}
-// 	$obj->title=$title;
-// 	$obj->description=$description;
-// 	$obj->start_dt=$start_dt;
-// 	$obj->end_dt=$end_dt;
-// 	$obj->status=1;
-// 	$obj->user_id=Auth::id();
-
-// 	if($obj->save()){
-// 	$msg_status=true;
-// 	if($id==''){
-// 	 $msg="Save Successfully !";
-// 	}else{
-// 	 $msg="Update Successfully !";
-// 	}
-// 	}else{
-// 			 $msg="Something went wrong ! Please retry.";
-// 	}
-
-//     	 return response()->json(array('status' => $msg_status, 'msg'=>$msg));
-	
-// }
-
-// public function getCalender(Request $request)
-// {
-
-// 	$start=$request->get('start');
-// 	$end=$request->get('end');
-
-// 	// echo $date=date('Y-m-d',$start);
-// 	$rows=Calender::select('id','start_dt','end_dt','title','description')->where('start_dt','>=',date('Y-m-d',$start))->get()->all();
-// 	// print_r($calender);
-// 	$calender=[];
-// 	$test_arr=[];
-// 	foreach ($rows as $key=> $row) {
-// 		$calender['id']=$row->id;
-// 		$calender['title']=$row->title;
-// 		$calender['start']=date('Y-m-d',strtotime($row->start_dt)).'T'.date('H:i:s',strtotime($row->start_dt)) ;	
-// 		// $calender['start']=date('Y-m-d',strtotime($row->start_dt)) ;
-// 		// $calender['end']=date('Y-m-d',strtotime($row->end_dt)) ;
-//  		$calender['end']=date('Y-m-d',strtotime($row->end_dt)).'T'.date('H:i:s',strtotime($row->end_dt)) ;
-// 		$calender['description']=$row->description;
-// 	$test_arr[]=$calender;
-// 	}
-
-// 	// print_r($test_arr);
-
-//     	 // return response()->json(array('status' => true, 'rows'=>$calender));
-//     	 return response()->json($test_arr);
-
-// }
-
-// public function resize(Request $request)
-// {
-// 	$id=$request->get('id');
-
-// 	$start_dt=$request->get('start_dt');
-// 	$start_dt=str_replace('T', ' ', date('Y-m-d H:i:s',strtotime($start_dt))) ;
-// 	$end_dt=$request->get('end_dt');
-// 	$end_dt=str_replace('T', ' ', date('Y-m-d H:i:s',strtotime($end_dt))) ;
-	
-// 	$obj =Calender::find($id);
-// 	$obj->start_dt=$start_dt;
-// 	$obj->end_dt=$end_dt;
-// 	$obj->save();
-
-//     	 return response()->json(array('status' => true));
+return redirect()->action('\Pratik\Slider\Controller\SliderController@index') ;
 
 
-// }
-// public function delete(Request $request)
-// {
-// 	$id=$request->get('id');
-// 	$obj =Calender::find($id);
-// 	$obj->delete();
+}
+public function show($id)
+{
+    $slider=Slider::find($id);
+    $slider->settings=unserialize($slider->settings);
 
-//     	 return response()->json(array('status' => true));
+    $slider->slidesToShow =$slider->settings['slidesToShow'];
+    $slider->slidesToScroll=$slider->settings['slidesToScroll'];
+    $slider->autoplay=$slider->settings['autoplay'];
+    $slider->autoplaySpeed=$slider->settings['autoplaySpeed'];
+    $slider->dots=$slider->settings['dots'];
+    $slider->arrows=$slider->settings['arrows'];
+    $slider->centerMode=$slider->settings['centerMode'];
+
+   // echo '<pre>'; print_r($slider);exit;
+    return view('slider::slider_form')
+    ->with('slider',$slider)
+    ->with('autoplaySpeed',self::$autoplaySpeed)
+    ->with('slides',self::$slides)
+    
+    ;
+    
+}
+
+public function delete($id)
+{
+
+    $obj =Slider::find($id);
+    $slides=Slides::where('slider_id','=',$obj->id)->delete();
+    $obj->delete();
+    Session::flash('alert-class', 'alert-success'); 
+    Session::flash('message','Delete Successfully.');
+    return redirect()->action('\Pratik\Slider\Controller\SliderController@index') ;
+
+}
+public function preview($id)
+{
+
+   $slider=Slider::find($id);
+   $slider->settings= unserialize($slider->settings);
+   
+
+   return view('slider::slider_preview')->with('slider',$slider);
 
 
-// }
+}
 
 
 }

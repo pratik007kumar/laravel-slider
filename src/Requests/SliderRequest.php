@@ -24,8 +24,19 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'title.required',
-            'daterange.required',
+            'title'=>'required',
+            'slide'=>'required',
+
+
+        ];
+    } 
+
+     public function messages()
+    {
+        return [
+            'title.required'=>'Enter Slider Title',
+            'slide.required'=>'Please Select Image',
+
 
         ];
     }

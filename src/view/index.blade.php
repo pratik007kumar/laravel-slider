@@ -18,16 +18,20 @@
 			<h3>All Sliders</h3>
 
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 text-right">
 			<a href="{{ url('slider/create') }}" class="btn btn-info">Create New Slider</a>
 			</div>
 			
 			<div class="col-md-12">
+			@if(Session::has('message'))
+			<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+			@endif
 				<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>Name</th>
 						{{-- <th>Short Code</th> --}}
+						<th>Slider Type</th>
 						<th>Slides</th>
 						<th>Action</th>
 					</tr>
@@ -35,9 +39,14 @@
 				<tbody>
 					@foreach ($sliders as $slider)
 						<tr>
-							<td>{{$slider->name}}</td>
-							<td>number of slides</td>
-							<td><a href="{{url('slider/'.$slider->id)}}" class="btn btn-info"> View All</td>
+							<td>{{$slider->title}}</td>
+							<td>{{$slider->slider_type==1?'Page Banner':'Image Slider'}}</td>
+							<td>{{$slider->slides->count()}}</td>
+							<td>
+							<a href="{{url('slider/view/'.$slider->id)}}" class="btn btn-info"> View All</a>
+							<a href="{{url('slider/delete/'.$slider->id)}}" class="btn btn-danger"> Delete</a>
+							<a href="{{url('slider/preview/'.$slider->id)}}" class="btn btn-success"> Preview</a>
+							</td>
 						</tr>	
 					@endforeach
 				</tbody>

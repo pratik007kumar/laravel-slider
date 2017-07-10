@@ -16,4 +16,8 @@ class Slider extends Model
         'title', 'start_dt','end_dt', 'description',
     ];
  
+ 	public function slides() {
+
+		return $this->hasMany('\Pratik\Slider\Model\Slides');
+	}
 }
