@@ -57,19 +57,7 @@
 			
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 		<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-		<script>
-			$(document).ready(function() {
-				$.ajaxSetup(
-				{
-					headers:
-					{
-						'X-CSRF-Token': $('input[name="_token"]').val()
-					}
-				});
-
-			});
-
-	</script>
+		 
 	</body>
 
 
