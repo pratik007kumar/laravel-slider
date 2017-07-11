@@ -5,7 +5,7 @@
     "license": "MIT",
     "language":"php",    
     "keywords": ["Slider","laravel Slider","Image slider","laravel","laravel banner and slider","laravel 5.4"],
-    "homepage":"https://github.com/pratik007kumar/slider",
+    "homepage":"https://github.com/pratik007kumar/laravel-slider",
     "authors": [
         {
             "name": "Pratik Kumar",
