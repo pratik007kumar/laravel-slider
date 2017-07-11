@@ -18,24 +18,24 @@ Laravel 5.4 Image Slider
 
 #### step 2: Copy providers to config/app.php
 
-'providers' => [
- // ...
-  Collective\Html\HtmlServiceProvider::class,
-  Pratik\Slider\SliderServiceProvider::class,
-  Barryvdh\Elfinder\ElfinderServiceProvider::class,
- // ...
+    'providers' => [
+     // ...
+      Collective\Html\HtmlServiceProvider::class,
+      Pratik\Slider\SliderServiceProvider::class,
+      Barryvdh\Elfinder\ElfinderServiceProvider::class,
+     // ...
 
-]
+    ]
 
 
-'aliases' => [
-    // ...
-      'Form' => Collective\Html\FormFacade::class,
-      'Html' => Collective\Html\HtmlFacade::class,
-      'Input' => Illuminate\Support\Facades\Input::class,
+    'aliases' => [
+        // ...
+          'Form' => Collective\Html\FormFacade::class,
+          'Html' => Collective\Html\HtmlFacade::class,
+          'Input' => Illuminate\Support\Facades\Input::class,
 
-    // ...
-  ],
+        // ...
+      ],
 
 #### step 3: Run  
 	php artisan vendor:publish
