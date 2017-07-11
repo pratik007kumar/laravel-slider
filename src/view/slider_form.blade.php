@@ -10,9 +10,6 @@
 </style>
 </head>
 <body>
-
-
-
 	<div class="container">
  
 			<div class="row">
@@ -102,12 +99,6 @@
 		</div>
 	</div>
 
-
-	
-
-
-
-
 	<script src="{{asset('vendor/pratik/slider/plugins/jquery.min.js')}}"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.js')}}"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
@@ -138,35 +129,12 @@
 
 	})
 
-function removeImage(id){
+	function removeImage(id){
 
-	$(id).parent().parent().remove();
+		$(id).parent().parent().remove();
 
-}
-	$('#feature_image').change(function(){
-		
-	});
- 
-// $('#feature_image').elfinder({
-//             // set your elFinder options here
-//             customData: {
-//                 _token: '<?= csrf_token() ?>'
-//             },
-//             url: ' URL::action('Barryvdh\Elfinder\ElfinderController@showConnector') ?>',  // connector URL
-//             dialog: {width: 900, modal: true, title: 'Select a file'},
-//             resizable: false,
-//             commandsOptions: {
-//                 getfile: {
-//                     oncomplete: 'destroy',
-//                     folders  : true
-//                 }
-//             },
-//             getFileCallback: function (file) {
-//               //  window.parent.processSelectedFile(file.path, ' ');
-//                 parent.jQuery.colorbox.close();
-//             }
-//         }).elfinder('instance');
-
+	}
+	 
 
 	</script>
 </body>
