@@ -6,7 +6,7 @@ Laravel 5.4 Image Slider
 
 #### Step 1:copy vendor using composer
 
-    composer require pratik007kumar/slider:"dev-master"
+    composer require pratik007kumar/slider
     
     or
     
