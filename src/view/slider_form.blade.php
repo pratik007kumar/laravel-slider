@@ -3,52 +3,10 @@
 <head>
 	<meta charset='utf-8' />
 	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/bootstrap/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/bootstrap/css/colorbox.css') }}">
+	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/css/colorbox.css') }}">
+	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/css/style.css') }}">
 <style type="text/css">
-	#cboxLoadedContent iframe{
-		width: 100%;
-		height: 100%;
-	}
-	#slides_div{border: 2px solid #ccc; min-height: 200px;}
-	#slides_div>div{
-		margin-top: 15px !important;
-	}
-	.images-div{
-		/*margin: 2px;
-		/*height:180px;
-		
-		width: 160px;
-		background: #eee;
-		float: left;
-		text-align: center;*/
-	}
-
-	.images-div .images-thumg{
-		/*padding: 2px;*/
-		/*height:156px;*/
-		/*border: px solid #ccc;*/
-		/*width: 156px;*/
-		float: left;
-		background: #fff;
-		text-align: center;
-		width: 100%;
-		height: 100%;
-	}
-	.images-div .images-thumg img{
-		width: 100%;
-		height: 100%;
-	}
-	.images-div .image-action{
-		 
-		text-align: right;
-		position: absolute;
-		/*z-index: 2;*/
-		margin-right: 20px;
-		margin-top: 5px;
-
-		top: 0px;
-		right: 0;
-	}
+	
 </style>
 </head>
 <body>
@@ -175,7 +133,7 @@
 	
 	var r=n+t;
 	$.colorbox(
-		{href:r,fastIframe:true,iframe:true,width:"70%",height:"50%"}
+		{href:r,fastIframe:true,iframe:true,width:"70%",height:"75%"}
 		)
 
 	})

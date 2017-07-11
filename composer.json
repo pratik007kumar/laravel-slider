@@ -3,14 +3,29 @@
     "description": "laravel slider with full feacher by using slick slider js plugin",
     "type": "library",
     "license": "MIT",
+    "language":"php",    
+    "keywords": ["Slider","laravel Slider","Image slider","laravel","laravel banner and slider","laravel 5.4"],
+    "homepage":"https://github.com/pratik007kumar/slider",
     "authors": [
         {
             "name": "Pratik Kumar",
             "email": "pratik007kumar@gmail.com"
         }
-    ],
-    "minimum-stability": "dev",
+    ],    
     "require": {
-        "laravelcollective/html": "^5.4.0"
-    }
+        "php": ">=5.6.4",
+        "laravelcollective/html": "^5.4.0",
+        "barryvdh/laravel-elfinder": "^0.3.10",
+    },
+    "autoload": {
+        "psr-4": {
+           "Pratik\\Slider\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+
 }

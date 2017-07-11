@@ -110,6 +110,8 @@ return redirect()->action('\Pratik\Slider\Controller\SliderController@index') ;
 }
 public function show($id)
 {
+    // echo  __DIR__.'/../public/uploads';
+    // exit;
     $slider=Slider::find($id);
     $slider->settings=unserialize($slider->settings);
 

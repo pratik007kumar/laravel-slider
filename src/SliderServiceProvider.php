@@ -30,6 +30,12 @@ class SliderServiceProvider extends ServiceProvider
         __DIR__.'/view' => resource_path('views/vendor/pratik/slider'),
     ]);
 
+    $this->publishes([
+        __DIR__.'/config/elfinder.php' => config_path('elfinder.php'),
+    ]);
+    $this->publishes([
+        __DIR__.'/config/slider.php' => config_path('slider.php'),
+    ]);
     }
     /**
      * Register the application services.
