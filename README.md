@@ -81,7 +81,8 @@ Laravel 5.4 Image Slider
 This packager Required Auth login
 if you don't have Auth login 
 
-	php artisan:make auth
+	php artisan make:auth
+    php artisan migrate
 
 #### you can view laravel slider with following link:
 www.yourdomain.com/slider 

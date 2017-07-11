@@ -99,8 +99,8 @@
 		</div>
 	</div>
 
-	<script src="{{asset('vendor/pratik/slider/plugins/jquery.min.js')}}"></script>
-	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.js')}}"></script>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
 	<!-- <script type="text/javascript" src="{{asset('/packages/barryvdh/elfinder/js/standalonepopup.min.js')}}"></script> -->
 	<script>
