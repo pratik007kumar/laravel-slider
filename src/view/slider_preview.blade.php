@@ -36,7 +36,7 @@
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.js')}}"></script>
-	<script src="{{asset('vendor/pratik/slider/plugins/slick/slick.js')}}" ></script>
+	<script src="{{asset('vendor/pratik/slider/plugins/slick/slick.min.js')}}" ></script>
 	<script type="text/javascript">
 	    $(document).on('ready', function() {
 	    	 
