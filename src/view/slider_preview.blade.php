@@ -30,25 +30,9 @@
       {{-- <div class="image-text"> the some text</div> --}}
     </div>
     @endforeach
-   {{--  <div>
-      <img src="http://placehold.it/350x300?text=2">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=3">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=4">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=5">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=6">
-    </div> --}}
+   
   </section>
   	</div>
-
-	{{-- <script src="{{asset('vendor/pratik/slider/plugins/jquery.min.js')}}"></script> --}}
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.js')}}"></script>
