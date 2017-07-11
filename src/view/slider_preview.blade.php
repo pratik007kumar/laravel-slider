@@ -26,7 +26,7 @@
 	<section class="regular slider">
 	@foreach($slider->slides as $slide)
     <div>
-      <img src="{{url('public/'.$slide->image)}}" style="width:100%;" >
+    <img src="{{asset($slide->image)}}" style="width:100%;" >
       {{-- <div class="image-text"> the some text</div> --}}
     </div>
     @endforeach

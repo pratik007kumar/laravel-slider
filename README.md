@@ -17,15 +17,66 @@ Laravel 5.4 Image Slider
     composer update
 
 #### step 2: Copy providers to config/app.php
-'providers' => [
 
+'providers' => [
+ // ...
+  Collective\Html\HtmlServiceProvider::class,
   Pratik\Slider\SliderServiceProvider::class,
+  Barryvdh\Elfinder\ElfinderServiceProvider::class,
+ // ...
 
 ]
 
-#### step 3: Run  php artisan vendor:publish
 
-#### step 4: Run  php artisan migrate
+'aliases' => [
+    // ...
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
+      'Input' => Illuminate\Support\Facades\Input::class,
+
+    // ...
+  ],
+
+#### step 3: Run  
+	php artisan vendor:publish
+#### step 4: Run 
+	php artisan elfinder:publish
+
+#### step 5: Run  
+	php artisan migrate
+#### step 6: create public/uploads folder  and set permission 0777
+
+#### step 7: Copy following array in config/elfinder.php
+	'dir' => ['uploads'],
+    'route' => [
+        'prefix' => 'elfinder',
+        'middleware' => ['web', 'auth'], //Set to null to disable middleware filter
+    ],
+    'roots' => array(
+        array(
+            'driver' => 'LocalFileSystem',
+            'path'   => __DIR__.'/../public/uploads', 
+            'URL'    => './../../uploads', // <-- That dir should be same as above, in path
+            'attributes' => array(
+                array( 
+                    'pattern' => '/\/\./',
+                    'read' => false,
+                    'write' => false,
+                    'locked' => true,
+                    'hidden' => true
+                )
+            )
+        )
+    ),
+    'options' => array(
+        'accessControl' => 'access',
+        'uploadAllow' => ['image'],
+        'mimeDetect' => 'internal',
+        'imgLib'     => 'gd',
+        'uploadOrder'=> ['allow', 'deny'],
+        'tmbPath' => '.tmb'
+        ),
+
 
 This packager Required Auth login
 if you don't have Auth login 

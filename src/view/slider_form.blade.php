@@ -3,7 +3,7 @@
 <head>
 	<meta charset='utf-8' />
 	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/bootstrap/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/css/colorbox.css') }}">
+	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/colorbox/colorbox.css') }}">
 	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/css/style.css') }}">
 <style type="text/css">
 	
@@ -87,7 +87,7 @@
 			        <input type="hidden" name="slide[]" value="{{$slide->image}}">
 					<div class="images-div">
 					<div class="img">
-					<img src="{{url('public/'.$slide->image)}}" class="img img-thumbnail" ></div>
+					<img src="{{asset($slide->image)}}" class="img img-thumbnail" ></div>
 					<div class="image-action" onclick="removeImage(this)"><a class="btn btn-danger btn-sm"> X </a></div></div></div>
 			        @endforeach
 			        @endif
@@ -110,10 +110,10 @@
 
 	<script src="{{asset('vendor/pratik/slider/plugins/jquery.min.js')}}"></script>
 	<script src="{{asset('vendor/pratik/slider/plugins/bootstrap/js/bootstrap.js')}}"></script>
-	<script src="{{asset('vendor/pratik/slider/js/jquery.colorbox-min.js')}}"></script>
+	<script src="{{asset('vendor/pratik/slider/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
 	<!-- <script type="text/javascript" src="{{asset('/packages/barryvdh/elfinder/js/standalonepopup.min.js')}}"></script> -->
 	<script>
-	var base_url="{{url('public')}}";
+	var base_url="{{asset('/')}}";
 	function processSelectedFile(e,t){$("#"+t).val(e)
 		// $('#slides_div').append('<div><img src="'+base_url+'/'+e+'"></div>');
 		$('#slides_div').append('<div class=" col-md-3 "> <input type="hidden" name="slide[]" value="'+e+'">'

@@ -77,6 +77,7 @@ public function store(SliderRequest $request)
    }
    $obj->title=$title;
    $obj->slider_type=$slider_type;
+   $obj->status=1;
    $obj->settings=serialize($settings);
 
    if($obj->save()){
