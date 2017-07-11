@@ -39,6 +39,6 @@ localhost/yourapp/slider
 
 #### Demo
 
-![Alt text](/../master/src/public/images/demo1.png?raw=true "All Slider Page")
-![Alt text](/../master/src/public/images/demo2.png?raw=true "Create Slider Page")
-![Alt text](/../master/src/public/images/demo3.png?raw=true "Slider Preview Page")
+![All Slider Page](/../master/src/public/images/demo1.png?raw=true "All Slider Page")
+![Create Slider Page](/../master/src/public/images/demo2.png?raw=true "Create Slider Page")
+![Slider Preview Page](/../master/src/public/images/demo3.png?raw=true "Slider Preview Page")
