@@ -3,8 +3,8 @@
 <head>
 	<meta charset='utf-8' />
 	<link rel="stylesheet" href="{{ asset('vendor/pratik/slider/plugins/bootstrap/css/bootstrap.min.css') }}">
-	 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/pratik/slider/plugins/slick/slick.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/pratik/slider/plugins/slick/slick-theme.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/pratik/slider/plugins/slick/slick.css') }}">
+  	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/pratik/slider/plugins/slick/slick-theme.css') }}">
 	<style type="text/css">
 		 .image-text{
 		 	position: absolute;
@@ -18,8 +18,8 @@
  
 			<div class="row" style="margin: 10px 0px">
 				<div class="col-md-12">
-				 <a href="{{ url('slider/view/'.$slider->id) }}" class="btn btn-success pull-left" ><< Back </a>
-				 <a href="{{ url('slider') }}" class="btn btn-success pull-right" > All Slider </a>
+				 <a href="{{ url(config('slider.slider_route_prefix').'/slider/view/'.$slider->id) }}" class="btn btn-success pull-left" ><< Back </a>
+				 <a href="{{ url(config('slider.slider_route_prefix').'/slider') }}" class="btn btn-success pull-right" > All Slider </a>
 				</div>
 	
 			</div>

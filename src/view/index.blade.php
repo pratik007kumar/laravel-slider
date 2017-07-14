@@ -17,7 +17,7 @@
 
 				</div>
 				<div class="col-md-6 text-right">
-				<a href="{{ url('slider/create') }}" class="btn btn-info">Create New Slider</a>
+				<a href="{{ url(config('slider.slider_route_prefix').'/slider/create') }}" class="btn btn-info">Create New Slider</a>
 				</div>
 				
 				<div class="col-md-12">
@@ -41,9 +41,9 @@
 								<td>{{$slider->slider_type==1?'Page Banner':'Image Slider'}}</td>
 								<td>{{$slider->slides->count()}}</td>
 								<td>
-								<a href="{{url('slider/view/'.$slider->id)}}" class="btn btn-info"> View All</a>
-								<a href="{{url('slider/delete/'.$slider->id)}}" class="btn btn-danger"> Delete</a>
-								<a href="{{url('slider/preview/'.$slider->id)}}" class="btn btn-success"> Preview</a>
+								<a href="{{url(config('slider.slider_route_prefix').'/slider/view/'.$slider->id)}}" class="btn btn-info"> View All</a>
+								<a href="{{url(config('slider.slider_route_prefix').'/slider/delete/'.$slider->id)}}" class="btn btn-danger"> Delete</a>
+								<a href="{{url(config('slider.slider_route_prefix').'/slider/preview/'.$slider->id)}}" class="btn btn-success"> Preview</a>
 								</td>
 							</tr>	
 						@endforeach

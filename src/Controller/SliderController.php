@@ -42,6 +42,7 @@ public  static $slides=[1=>'1',
 
   public function index()
   {
+
     $sliders=Slider::all();
     return view('slider::index')->with('sliders',$sliders);
 }
@@ -68,7 +69,11 @@ public function store(SliderRequest $request)
      "infinite"=> 'true'
      ];
 
+
     $slide=$request->slide;
+    if(count($slide)==1){
+      $settings["fade"]= 'true';
+    }
 
     if($id==''){
        $obj =new Slider();

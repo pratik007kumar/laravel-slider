@@ -1,3 +1,6 @@
 <?php
 
-return array();
+return array(
+ 'slider_route_prefix' => 'admin',
+ 
+	);

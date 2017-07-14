@@ -1,5 +1,6 @@
 <?php
-Route::group(['middleware' => ['web', 'auth']], function(){
+Route::group(['prefix' => config('slider.slider_route_prefix'),'middleware' => ['web', 'auth']], function(){
+
 Route::get('/slider','Pratik\Slider\Controller\SliderController@index');
 Route::get('/slider/view/{id}','Pratik\Slider\Controller\SliderController@show');
 Route::get('/slider/delete/{id}','Pratik\Slider\Controller\SliderController@delete');

@@ -13,10 +13,10 @@
 				<div class="row">
 					<div class="col-md-12">
 					@if(isset($slider))
-						{{ Form::model($slider,['url' => 'slider/store', 'data-toggle'=>"validator" ,'role'=>"form",'method'=>'post','class'=>'form-horizontal']) }}
+						{{ Form::model($slider,['url' => config('slider.slider_route_prefix').'/slider/store', 'data-toggle'=>"validator" ,'role'=>"form",'method'=>'post','class'=>'form-horizontal']) }}
 						<input type="hidden" name="id" value="{{$slider->id}}">
 					@else
-						{{ Form::open(['url' => 'slider/store', 'data-toggle'=>"validator" ,'role'=>"form",'method'=>'post','class'=>'form-horizontal']) }}
+						{{ Form::open(['url' => config('slider.slider_route_prefix').'/slider/store', 'data-toggle'=>"validator" ,'role'=>"form",'method'=>'post','class'=>'form-horizontal']) }}
 					@endif
 						 <div class="form-group">
 				        <div class="col-md-6">

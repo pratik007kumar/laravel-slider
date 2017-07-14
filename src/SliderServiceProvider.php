@@ -15,6 +15,7 @@ class SliderServiceProvider extends ServiceProvider
     {
         //
       $this->loadViewsFrom(__DIR__.'/view', 'slider');
+      
       $this->loadRoutesFrom(__DIR__.'/routes.php');
 
       $this->publishes([
