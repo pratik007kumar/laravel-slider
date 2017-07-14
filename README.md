@@ -83,11 +83,14 @@ if you don't have Auth login
 
 	php artisan make:auth
     php artisan migrate
+#### You can change Route prefix using config/slider.php
+
+     'slider_route_prefix' => 'admin',
 
 #### you can view laravel slider with following link:
-www.yourdomain.com/slider 
+www.yourdomain.com/admin/slider 
 or 
-localhost/yourapp/slider
+localhost/yourapp/admin/slider
 
 #### Demo
 
